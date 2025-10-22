@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasya Creative Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Variabel CSS untuk kemudahan perubahan tema */
+        :root {
+            --primary-color: #ff0073; /* Warna pink khas Tasya */
+            --secondary-color: #007bff; /* Warna biru untuk link/aksi */
+            --text-color: #222;
+            --background-gradient: linear-gradient(135deg, #fce4ec, #e3f2fd); /* Gradien lebih halus */
+            --white: #fff;
+            --light-gray: #f7f7f7;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --logo-text-color: #ff0073; /* Warna untuk teks di navbar */
+        }
+
+        /* Reset dan Dasar */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--background-gradient);
+            color: var(--text-color);
+            line-height: 1.6; /* Keterbacaan lebih baik */
+        }
+
+        /* Horizontal Rule */
+        hr {
+            border: none;
+            border-top: 10px solid var(--primary-color);
+            margin: 0; /* Hapus margin default agar menempel di navbar */
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-top: 1.5em; /* Spasi di atas heading */
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary-color); /* Ubah warna hover link */
+            text-decoration: underline;
+        }
+        
+        /* Main Content Styling */
+        main {
+            padding: 30px 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 5%; /* Padding relatif */
+            background-color: var(--white);
+            position: sticky; /* Sticky navbar */
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Mengatur Logo dan Teks di dalam Logo */
+        nav .Logo {
+            display: flex; 
+            align-items: center; 
+            gap: 10px; /* Jarak antara logo dan teks */
+        }
+
+        nav .Logo img {
+            width: 60px; /* Ukuran logo lebih proporsional */
+            height: 60px;
+            display: block;
+        }
+        
+        /* Styling untuk Teks Agensi */
+        .agency-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--logo-text-color);
+            text-transform: uppercase;
+            white-space: nowrap; /* Mencegah teks terpotong */
+        }
+
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+            color: var(--text-color);
+            font-weight: 500;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        /* Menu icon (hamburger) */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+
+        .menu-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Checkbox hidden */
+        #menu-toggle {
+            display: none;
+        }
+
+        /* Utility Classes */
+        .tasyaimut {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        /* Spesifik Elemen */
+        blockquote {
+            border-left: 5px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+        }
+
+        blockquote cite {
+            display: block;
+            text-align: right;
+            font-style: normal;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        code, pre {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        
+        mark {
+            background-color: #ffc107;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        abbr {
+            cursor: help;
+            border-bottom: 1px dotted var(--primary-color);
+        }
+
+        /* Form Styling */
+        input[type="text"], input[type="email"], input[type="password"], select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button[type="submit"], button[type="reset"] {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+            transition: opacity 0.3s, background-color 0.3s;
+            font-weight: 500;
+        }
+        
+        button[type="reset"] {
+            background-color: #6c757d;
+        }
+
+        button[type="submit"]:hover, button[type="reset"]:hover {
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        small {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            background-color: var(--white);
+            margin-top: 0;
+            border-top: 1px solid var(--primary-color);
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 20px;
+            }
+            
+            /* Mengurangi ukuran teks agensi di mobile */
+            .agency-title {
+                font-size: 1.1em;
+                font-weight: 600;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                right: 20px; 
+                background: var(--white);
+                padding: 15px;
+                border: 2px solid var(--primary-color);
+                border-radius: 8px;
+                width: 70%;
+                box-shadow: var(--box-shadow);
+                gap: 5px;
+            }
+
+            nav ul li a {
+                padding: 10px;
+            }
+
+            /* Kalau checkbox aktif, menu muncul */
+            #menu-toggle:checked ~ ul {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <nav>
+        <div class="Logo">
+            <img src="Desain logo dkv smkn 2 balikpapan - bulat besar.png" alt="Logo Tasya Creative Agency">
+            <span class="agency-title">Tasya Creative Agency</span>
+        </div>
+        
+        <input type="checkbox" id="menu-toggle"> 
+        
+        <label for="menu-toggle" class="menu-icon">
+             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" alt="Menu Icon">
+        </label>
+        
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <hr>
+
+    <main>
+        <h1 id="home">✨ Tasya Creative Agency ✨</h1>
+        <p>Welcome to dunia kreatif bareng <strong class="tasyaimut">Tasya Putri Azzahra</strong> — tempat buat mencurahkan ide ide keren kamu!.</p>
+
+        <h2 id="about">👋 Tentang Aku</h2>
+        <p>
+            Hai, aku <mark>Tasya</mark>. Aku percaya kalau kreativitas itu bukan sekadar skill, tapi cara pandang.
+        </p>
+        <p>Setiap project buatku adalah kesempatan untuk mainin imajinasi dan bikin sesuatu yang bisa nyambung sama orang lain. </p>
+        <p>
+            Jangan Lupa Follow aku di Instagram <a href="https://instagram.com/flouveiraaa" target="_blank">@flouveiraaa</a>.
+        </p>
+        <blockquote>
+            “Curiosity about life in all of its aspects, I think, is still the secret of great creative people.” 
+            <cite>– Leo Burnett</cite>
+        </blockquote>
+        <p>
+            Aku juga dikenal sebagai <abbr title="Creative Director">CD</abbr> dalam beberapa project.  
+        </p>
+        
+        <br>
+        
+        <h2>🚀 Layanan Kami</h2>
+        <p>Kami siap bantu bikin brand kamu lebih <em>hidup</em>. Beberapa layanan kami:</p>
+        <ul>
+            <li>✨ Branding</li>
+            <li>🎨 Desain Visual</li>
+            <li>📱 Social Media Strategy</li>
+            <li>🎥 Produksi Konten</li>
+        </ul>
+        <br>
+
+        <h3>Step Kerja Bareng Kami</h3>
+        <ol>
+            <li>Ngobrol santai dulu biar nyambung</li>
+            <li>Brainstorm ide keren</li>
+            <li>Eksekusi dengan hati & detail</li>
+            <li>Publish hasil yang bikin wow!</li>
+        </ol>
+        <br>
+
+        <h3>Jenis Konten</h3>
+        <ul>
+            <li>Visual
+                <ul>
+                    <li>Poster</li>
+                    <li>Logo</li>
+                </ul>
+            </li>
+            <li>Video
+                <ul>
+                    <li>Reels</li>
+                    <li>Short Film</li>
+                </ul>
+            </li>
+        </ul>
+        <br>
+
+        <h3>Tools Favorite</h3>
+        <dl>
+            <dt>Canva</dt>
+            <dd>Simple tapi powerful buat desain.</dd>
+            <dt>Figma</dt>
+            <dd>Tempat kolaborasi UI/UX biar lancar.</dd>
+            <dt>CapCut</dt>
+            <dd>Edit video biar konten makin chill.</dd>
+        </dl>
+        <br>
+        
+        <h2 id="work">🎉 Showcase</h2>
+        <p>Kebetulan aku merupakan salah satu Social Media Management <abbr title="Organisasi Siswa Intra Sekolah">OSIS</abbr> SMKN 2 Balikpapan.</p>
+        <p>Cek hasil desain aku:</p>
+        <div style="text-align: center; margin-top: 20px;">
+             <a href="https://instagram.com/osisskada" target="_blank" style="display: inline-block;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" 
+                alt="Instagram @osisskada" width="60" height="60" style="vertical-align: middle;">
+                <p style="margin-top: 5px; font-weight: 500;">Kunjungi Instagram @osisskada</p>
+            </a>
+        </div>
+        <br>
+        
+        <h2 id="contact">💌 Hubungi Kami</h2>
+        <form>
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" placeholder="Tuliskan nama kamu..." required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="email@example.com" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Buat password..." required>
+
+            <label for="layanan">Jenis Layanan:</label>
+            <select id="layanan">
+                <option value="branding">Branding</option>
+                <option value="desain">Desain Visual</option>
+                <option value="social-media">Social Media Strategy</option>
+                <option value="video">Produksi Konten</option>
+            </select>
+
+            <label>Pilih Paket:</label><br>
+            <input type="radio" id="basic" name="paket" value="basic" checked> 
+            <label for="basic">Basic</label>  
+            <input type="radio" id="premium" name="paket" value="premium"> 
+            <label for="premium">Premium</label>  
+            <input type="radio" id="pro" name="paket" value="pro"> 
+            <label for="pro">Pro</label>  
+            <br><br>
+
+            <label>Fitur Tambahan:</label><br>
+            <input type="checkbox" id="foto" name="fitur" value="foto"> 
+            <label for="foto">Fotografi</label>  
+            <input type="checkbox" id="copywriting" name="fitur" value="copywriting"> 
+            <label for="copywriting">Copywriting</label>  
+            <input type="checkbox" id="ads" name="fitur" value="ads"> 
+            <label for="ads">Ads</label>  
+            <br><br>
+
+            <label for="pesan">Pesan:</label>
+            <textarea id="pesan" rows="4" placeholder="Ceritain kebutuhan kamu..."></textarea><br>
+
+            <button type="submit">Kirim Pesan</button>
+            <button type="reset">Ulangi</button>
+        </form>
+    </main>
+
+    <hr>
+    <small>&copy; 2025 Tasya Creative Agency | Dibuat dengan penuh cinta</small>
+    
+
+</body>
+</html>
